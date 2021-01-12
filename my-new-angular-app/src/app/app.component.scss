@@ -1,0 +1,24 @@
+.select-box {
+  text-align: right;
+}
+.tab-pane {
+  padding: 50px;
+  .list-contents-header {
+  }
+  .cart-list-item {
+    margin-left: 50px;
+    text-align: left;
+    padding: 20px;
+  }
+}
+.control {
+  width: 100%;
+  .btn {
+    width: 40%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ddd;
+    padding: 10px;
+    margin: 10px;
+  }
+}

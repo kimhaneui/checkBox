@@ -1,0 +1,135 @@
+<!-- 전체 -->
+<div class="tab-pane active">
+  <div class="list-contents-header">
+    <div class="list-control">
+      <label class="checkbox lg">
+        <input (click)="allCheck($event)" type="checkbox" class="checkbox-control-input">
+        <span class="checkbox-control-text">전체 선택</span>
+      </label>
+      <a (click)="deleteAll()">선택 삭제</a>
+    </div>
+
+    <div class="select-box md line ml20">
+      <select #selectElem (change)="sortStr(selectElem.value)" name="" id="" required>
+        <option value="" disabled selected>정렬 기준</option>
+        <option *ngFor="let item of selectList" [value]="item.code">{{item.value}}</option>
+      </select>
+    </div>
+  </div>
+  <!-- 장바구니 아이템 : 항공 -->
+  <ng-container *ngIf="tabNo === 0">
+    <ng-container *ngFor="let item of viewModel; index as i">
+      <div class="cart-list-item">
+        <div class="item-control">
+          <label class="checkbox lg">
+            <input (click)="onCheck($event,i)" type="checkbox" class="checkbox-control-input">
+            <span class="checkbox-control-text">선택</span>
+          </label>
+        </div>
+        <div class="item-summary">
+          <div class="summary">
+            <p class="product-title mb15">{{item.routin}}</p>
+            <ul class="column-contents lg">
+              <li>
+                <span class="title">이용일</span>
+                <span class="text">{{item.date}}</span>
+              </li>
+              <li>
+                <span class="title">항공사</span>
+                <span class="text">대한항공, 델타항공, 아메리칸항공</span>
+              </li>
+              <li>
+                <span class="title">좌석정보</span>
+                <span class="text">성인 2, 일반석</span>
+              </li>
+              <li>
+                <span class="title">결제금액</span>
+                <span class="text"><span class="price"><strong>1,026,000</strong><span>원</span></span></span>
+              </li>
+            </ul>
+          </div>
+          <div class="control">
+            <a (click)="goDelete()" class="btn md grey">삭제하기</a>
+            <a *ngIf="reservationBool" (click)="goReservation()" class="btn md default basis2">예약하기</a>
+            <span *ngIf="!reservationBool" class="btn md grey basis2">예약불가</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </ng-container>
+  <ng-container *ngIf="tabNo === 1">
+    <div class="cart-list-item">
+      <div class="item-control">
+        <label class="checkbox lg">
+          <input type="checkbox" class="checkbox-control-input">
+          <span class="checkbox-control-text">선택</span>
+        </label>
+      </div>
+      <div class="item-summary">
+        <div class="summary">
+          <p class="product-title mb15">[다구간] 인천 - 로스앤젤레스 - 샌프란시스코-인천</p>
+          <ul class="column-contents lg">
+            <li>
+              <span class="title">이용일</span>
+              <span class="text">2019.12.20 - 2019.12.30</span>
+            </li>
+            <li>
+              <span class="title">항공사</span>
+              <span class="text">대한항공, 델타항공, 아메리칸항공</span>
+            </li>
+            <li>
+              <span class="title">좌석정보</span>
+              <span class="text">성인 2, 일반석</span>
+            </li>
+            <li>
+              <span class="title">결제금액</span>
+              <span class="text"><span class="price"><strong>1,026,000</strong><span>원</span></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="control">
+          <a (click)="goDelete()" class="btn md grey">삭제하기</a>
+          <a *ngIf="reservationBool" (click)="goReservation()" class="btn md default basis2">예약하기</a>
+          <span *ngIf="!reservationBool" class="btn md grey basis2">예약불가</span>
+        </div>
+      </div>
+    </div>
+    <div class="cart-list-item">
+      <div class="item-control">
+        <label class="checkbox lg">
+          <input type="checkbox" class="checkbox-control-input">
+          <span class="checkbox-control-text">선택</span>
+        </label>
+      </div>
+      <div class="item-summary">
+        <div class="summary">
+          <p class="product-title mb15">[다구간] 인천 - 로스앤젤레스 - 샌프란시스코-인천</p>
+          <ul class="column-contents lg">
+            <li>
+              <span class="title">이용일</span>
+              <span class="text">2019.12.20 - 2019.12.30</span>
+            </li>
+            <li>
+              <span class="title">항공사</span>
+              <span class="text">대한항공, 델타항공, 아메리칸항공</span>
+            </li>
+            <li>
+              <span class="title">좌석정보</span>
+              <span class="text">성인 2, 일반석</span>
+            </li>
+            <li>
+              <span class="title">결제금액</span>
+              <span class="text"><span class="price"><strong>1,026,000</strong><span>원</span></span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="control">
+          <a (click)="goDelete()" class="btn md grey">삭제하기</a>
+          <a *ngIf="reservationBool" (click)="goReservation()" class="btn md default basis2">예약하기</a>
+          <span *ngIf="!reservationBool" class="btn md grey basis2">예약불가</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
